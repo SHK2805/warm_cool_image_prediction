@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Cool Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .choose-file {
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .input-file {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-file:hover {
+            background-color: #0056b3;
+        }
+
+        .submit input[type="submit"] {
+            display: none;
+        }
+
+        .submit .-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit .-btn:hover {
+            background-color: #218838;
+        }
+
+        h4 {
+            color: #666;
+            margin-top: 20px;
+        }
+
+        #file-name-display {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Warm Cool Prediction</h1>
+    <p>Hello, this is a simple warm cool image prediction service.</p>
+    <p>Please upload an image, and we will tell you if it is warm or cool.</p>
+    <main>
+        <div class="container">
+            <div>
+                <h3>Upload an Image</h3>
+            </div>
+            <div>
+                <form method="POST" enctype="multipart/form-data" action="/upload">
+                    <div class="choose-file">
+                        <input type="file" name="image" id="file-input" accept="image/*" required />
+                        <label for="file-input" class="input-file">Choose File</label>
+                        <div id="file-name-display"></div>
+                    </div>
+                    <div class="submit">
+                        <input id="submit-btn" type="submit" value="Submit" />
+                        <label for="submit-btn" class="-btn">Submit</label>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <h4>{{ message }}</h4>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('file-input').addEventListener('change', function() {
+            const fileNameDisplay = document.getElementById('file-name-display');
+            const fileName = this.files[0].name;
+            fileNameDisplay.textContent = `Selected file: ${fileName}`;
+        });
+    </script>
+</body>
+</html>

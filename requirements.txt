@@ -1,0 +1,10 @@
+pillow
+opencv-python
+piexif
+matplotlib
+seaborn
+numpy
+Flask
+flask-cors
+flask_limiter
+werkzeug

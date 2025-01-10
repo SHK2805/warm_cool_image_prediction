@@ -9,8 +9,38 @@ The user can upload an image to the application, and the application will predic
 The files will be uploaded to the images folder in the application directory.
 
 ## Installation
+Run the app from the terminal using the following commands:
 ```bash
 # on terminal
+# navigate to the project path
+cd /path/to/your/project
 pip install -r requirements.txt
 python app.py
+```
+Run the app in docker
+```bash
+# navigate to the project path
+cd /path/to/your/project
+# When using the docker compose use the below
+# since we are using the docker compose we will run the below command
+docker-compose up
+# stop the container
+docker-compose down
+
+# if you are not using docker compose use the below
+# build the image
+docker build -t warm_cool_image_prediction .
+# run the docker
+docker run -p 8000:8080 warm_cool_image_prediction
+
+# see logs
+docker-compose logs web
+
+# stop the container
+docker-compose down
+# rebuild the container
+docker-compose up --build
+
+# check the container
+docker ps
 ```

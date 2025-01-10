@@ -172,3 +172,5 @@ cython_debug/
 /.idea
 .DS_Store
 /warm_cool_image_prediction/images
+/images
+/images
